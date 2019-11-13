@@ -35,11 +35,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          print('clicked "Add" button');
-
-          setState(() {
-            this.todos.add({'text': 'Nova adição', 'checked': false});
-          });
+          Navigator.of(context).pushNamed('/new');
         },
       ),
     );
