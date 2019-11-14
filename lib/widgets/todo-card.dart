@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class TodoCard extends StatefulWidget {
   String text;
   bool checked = false;
+  Function onDelete;
 
-  TodoCard(this.text, [this.checked = false]);
+  TodoCard(this.text, this.onDelete, [this.checked = false]);
 
   @override
   _TodoCardState createState() => _TodoCardState();
@@ -22,7 +23,7 @@ class _TodoCardState extends State<TodoCard> {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
-
+                widget.onDelete();
               },
             ),
             Expanded(

@@ -28,7 +28,9 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 Map item = this.todos[index];
 
-                return TodoCard(item['text'], item['checked']);
+                return TodoCard(item['text'], () {
+                  _deleteTodo(index);
+                }, item['checked']);
               },
             )
           : TodoEmpty(),
@@ -39,5 +41,17 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+  }
+
+  _deleteTodo(int index) {
+    setState(() {
+      todos.removeAt(index);
+    });
+  }
+
+  _addTodo(String text) {
+    setState(() {
+      todos.add({'text': text, 'checked': false});
+    });
   }
 }

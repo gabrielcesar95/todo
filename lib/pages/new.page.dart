@@ -23,14 +23,12 @@ class _NewTodoState extends State<NewTodo> {
           Container(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              controller: text,
               decoration: InputDecoration(
-                  labelText: 'ToDo:', fillColor: Colors.white, filled: true),
-              onSaved: (String value) {
-                print(value);
-              },
+                labelText: 'ToDo:',
+                fillColor: Colors.white,
+                filled: true,
+              ),
             ),
           ),
           Container(
